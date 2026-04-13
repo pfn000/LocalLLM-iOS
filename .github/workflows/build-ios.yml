@@ -18,304 +18,9 @@ jobs:
         with:
           xcode-version: '15.4'
       
-      - name: Create Xcode Project Structure
+      - name: Prepare Source Files
         run: |
-          # Create proper Xcode project structure
-          mkdir -p LocalLLM.xcodeproj
-          
-          # Create project.pbxproj
-          cat > LocalLLM.xcodeproj/project.pbxproj << 'PBXPROJ'
-          // !$*UTF8*$!
-          {
-            archiveVersion = 1;
-            classes = {};
-            objectVersion = 56;
-            objects = {
-              /* Begin PBXBuildFile section */
-              AAA00001 /* LocalLLMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00002; };
-              AAA00003 /* LLMEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00004; };
-              AAA00005 /* MCPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00006; };
-              AAA00007 /* AgentOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00008; };
-              /* End PBXBuildFile section */
-              
-              /* Begin PBXFileReference section */
-              AAA00010 /* LocalLLM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalLLM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-              AAA00002 /* LocalLLMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLLMApp.swift; sourceTree = "<group>"; };
-              AAA00004 /* LLMEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMEngine.swift; sourceTree = "<group>"; };
-              AAA00006 /* MCPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPManager.swift; sourceTree = "<group>"; };
-              AAA00008 /* AgentOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentOrchestrator.swift; sourceTree = "<group>"; };
-              AAA00009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-              /* End PBXFileReference section */
-              
-              /* Begin PBXGroup section */
-              AAA00020 = {
-                isa = PBXGroup;
-                children = (
-                  AAA00021 /* Sources */,
-                  AAA00022 /* Products */,
-                );
-                sourceTree = "<group>";
-              };
-              AAA00021 /* Sources */ = {
-                isa = PBXGroup;
-                children = (
-                  AAA00023 /* LocalLLM */,
-                );
-                path = Sources;
-                sourceTree = "<group>";
-              };
-              AAA00022 /* Products */ = {
-                isa = PBXGroup;
-                children = (
-                  AAA00010 /* LocalLLM.app */,
-                );
-                name = Products;
-                sourceTree = "<group>";
-              };
-              AAA00023 /* LocalLLM */ = {
-                isa = PBXGroup;
-                children = (
-                  AAA00002 /* LocalLLMApp.swift */,
-                  AAA00004 /* LLMEngine.swift */,
-                  AAA00006 /* MCPManager.swift */,
-                  AAA00008 /* AgentOrchestrator.swift */,
-                  AAA00009 /* Info.plist */,
-                );
-                path = LocalLLM;
-                sourceTree = "<group>";
-              };
-              /* End PBXGroup section */
-              
-              /* Begin PBXNativeTarget section */
-              AAA00030 /* LocalLLM */ = {
-                isa = PBXNativeTarget;
-                buildConfigurationList = AAA00040;
-                buildPhases = (
-                  AAA00031 /* Sources */,
-                  AAA00032 /* Frameworks */,
-                  AAA00033 /* Resources */,
-                );
-                buildRules = ();
-                dependencies = ();
-                name = LocalLLM;
-                productName = LocalLLM;
-                productReference = AAA00010;
-                productType = "com.apple.product-type.application";
-              };
-              /* End PBXNativeTarget section */
-              
-              /* Begin PBXProject section */
-              AAA00050 /* Project object */ = {
-                isa = PBXProject;
-                attributes = {
-                  BuildIndependentTargetsInParallel = 1;
-                  LastSwiftUpdateCheck = 1540;
-                  LastUpgradeCheck = 1540;
-                  TargetAttributes = {
-                    AAA00030 = {
-                      CreatedOnToolsVersion = 15.4;
-                    };
-                  };
-                };
-                buildConfigurationList = AAA00051;
-                compatibilityVersion = "Xcode 14.0";
-                developmentRegion = en;
-                hasScannedForEncodings = 0;
-                knownRegions = (en, Base);
-                mainGroup = AAA00020;
-                productRefGroup = AAA00022;
-                projectDirPath = "";
-                projectRoot = "";
-                targets = (AAA00030);
-              };
-              /* End PBXProject section */
-              
-              /* Begin PBXSourcesBuildPhase section */
-              AAA00031 /* Sources */ = {
-                isa = PBXSourcesBuildPhase;
-                buildActionMask = 2147483647;
-                files = (
-                  AAA00001,
-                  AAA00003,
-                  AAA00005,
-                  AAA00007,
-                );
-                runOnlyForDeploymentPostprocessing = 0;
-              };
-              /* End PBXSourcesBuildPhase section */
-              
-              /* Begin PBXFrameworksBuildPhase section */
-              AAA00032 /* Frameworks */ = {
-                isa = PBXFrameworksBuildPhase;
-                buildActionMask = 2147483647;
-                files = ();
-                runOnlyForDeploymentPostprocessing = 0;
-              };
-              /* End PBXFrameworksBuildPhase section */
-              
-              /* Begin PBXResourcesBuildPhase section */
-              AAA00033 /* Resources */ = {
-                isa = PBXResourcesBuildPhase;
-                buildActionMask = 2147483647;
-                files = ();
-                runOnlyForDeploymentPostprocessing = 0;
-              };
-              /* End PBXResourcesBuildPhase section */
-              
-              /* Begin XCBuildConfiguration section */
-              AAA00060 /* Debug */ = {
-                isa = XCBuildConfiguration;
-                buildSettings = {
-                  ALWAYS_SEARCH_USER_PATHS = NO;
-                  CLANG_ENABLE_MODULES = YES;
-                  CODE_SIGN_IDENTITY = "";
-                  CODE_SIGNING_ALLOWED = NO;
-                  CODE_SIGNING_REQUIRED = NO;
-                  COPY_PHASE_STRIP = NO;
-                  DEBUG_INFORMATION_FORMAT = dwarf;
-                  ENABLE_STRICT_OBJC_MSGSEND = YES;
-                  ENABLE_TESTABILITY = YES;
-                  GCC_DYNAMIC_NO_PIC = NO;
-                  GCC_OPTIMIZATION_LEVEL = 0;
-                  GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
-                  GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                  GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                  GCC_WARN_UNDECLARED_SELECTOR = YES;
-                  GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                  GCC_WARN_UNUSED_FUNCTION = YES;
-                  GCC_WARN_UNUSED_VARIABLE = YES;
-                  IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-                  MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-                  MTL_FAST_MATH = YES;
-                  ONLY_ACTIVE_ARCH = YES;
-                  SDKROOT = iphoneos;
-                  SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-                  SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-                };
-                name = Debug;
-              };
-              AAA00061 /* Release */ = {
-                isa = XCBuildConfiguration;
-                buildSettings = {
-                  ALWAYS_SEARCH_USER_PATHS = NO;
-                  CLANG_ENABLE_MODULES = YES;
-                  CODE_SIGN_IDENTITY = "";
-                  CODE_SIGNING_ALLOWED = NO;
-                  CODE_SIGNING_REQUIRED = NO;
-                  COPY_PHASE_STRIP = NO;
-                  DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                  ENABLE_NS_ASSERTIONS = NO;
-                  ENABLE_STRICT_OBJC_MSGSEND = YES;
-                  GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                  GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                  GCC_WARN_UNDECLARED_SELECTOR = YES;
-                  GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                  GCC_WARN_UNUSED_FUNCTION = YES;
-                  GCC_WARN_UNUSED_VARIABLE = YES;
-                  IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-                  MTL_ENABLE_DEBUG_INFO = NO;
-                  MTL_FAST_MATH = YES;
-                  SDKROOT = iphoneos;
-                  SWIFT_COMPILATION_MODE = wholemodule;
-                  SWIFT_OPTIMIZATION_LEVEL = "-O";
-                  VALIDATE_PRODUCT = YES;
-                };
-                name = Release;
-              };
-              AAA00062 /* Debug */ = {
-                isa = XCBuildConfiguration;
-                buildSettings = {
-                  ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                  CODE_SIGN_IDENTITY = "";
-                  CODE_SIGNING_ALLOWED = NO;
-                  CODE_SIGNING_REQUIRED = NO;
-                  CURRENT_PROJECT_VERSION = 1;
-                  DEVELOPMENT_TEAM = "";
-                  GENERATE_INFOPLIST_FILE = YES;
-                  INFOPLIST_FILE = Sources/LocalLLM/Info.plist;
-                  INFOPLIST_KEY_CFBundleDisplayName = LocalLLM;
-                  INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-                  INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-                  INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-                  INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-                  INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-                  INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-                  LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
-                  MARKETING_VERSION = 1.0;
-                  PRODUCT_BUNDLE_IDENTIFIER = "com.localllm.ios";
-                  PRODUCT_NAME = "$(TARGET_NAME)";
-                  SWIFT_EMIT_LOC_STRINGS = YES;
-                  SWIFT_VERSION = 5.0;
-                  TARGETED_DEVICE_FAMILY = "1,2";
-                };
-                name = Debug;
-              };
-              AAA00063 /* Release */ = {
-                isa = XCBuildConfiguration;
-                buildSettings = {
-                  ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                  CODE_SIGN_IDENTITY = "";
-                  CODE_SIGNING_ALLOWED = NO;
-                  CODE_SIGNING_REQUIRED = NO;
-                  CURRENT_PROJECT_VERSION = 1;
-                  DEVELOPMENT_TEAM = "";
-                  GENERATE_INFOPLIST_FILE = YES;
-                  INFOPLIST_FILE = Sources/LocalLLM/Info.plist;
-                  INFOPLIST_KEY_CFBundleDisplayName = LocalLLM;
-                  INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-                  INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-                  INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-                  INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-                  INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-                  INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-                  LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
-                  MARKETING_VERSION = 1.0;
-                  PRODUCT_BUNDLE_IDENTIFIER = "com.localllm.ios";
-                  PRODUCT_NAME = "$(TARGET_NAME)";
-                  SWIFT_EMIT_LOC_STRINGS = YES;
-                  SWIFT_VERSION = 5.0;
-                  TARGETED_DEVICE_FAMILY = "1,2";
-                };
-                name = Release;
-              };
-              /* End XCBuildConfiguration section */
-              
-              /* Begin XCConfigurationList section */
-              AAA00040 /* Build configuration list for PBXNativeTarget */ = {
-                isa = XCConfigurationList;
-                buildConfigurations = (
-                  AAA00062,
-                  AAA00063,
-                );
-                defaultConfigurationIsVisible = 0;
-                defaultConfigurationName = Release;
-              };
-              AAA00051 /* Build configuration list for PBXProject */ = {
-                isa = XCConfigurationList;
-                buildConfigurations = (
-                  AAA00060,
-                  AAA00061,
-                );
-                defaultConfigurationIsVisible = 0;
-                defaultConfigurationName = Release;
-              };
-              /* End XCConfigurationList section */
-            };
-            rootObject = AAA00050;
-          }
-          PBXPROJ
-      
-      - name: Flatten Swift Files
-        run: |
-          # Move all Swift files to a flat structure the Xcode project expects
-          mkdir -p Sources/LocalLLM
-          
-          # Copy main app file
-          if [ -f "Sources/LocalLLM/LocalLLMApp.swift" ]; then
-            echo "Main app file exists"
-          fi
-          
-          # Flatten nested files
+          # Flatten nested Swift files
           if [ -f "Sources/LocalLLM/LLM/LLMEngine.swift" ]; then
             cp Sources/LocalLLM/LLM/LLMEngine.swift Sources/LocalLLM/LLMEngine.swift
           fi
@@ -328,15 +33,7 @@ jobs:
             cp Sources/LocalLLM/Agents/AgentOrchestrator.swift Sources/LocalLLM/AgentOrchestrator.swift
           fi
           
-          # List files for debugging
-          echo "=== Files in Sources/LocalLLM ==="
-          ls -la Sources/LocalLLM/
-      
-      - name: Remove llama.cpp References
-        run: |
-          # For initial build, remove llama.cpp dependencies
-          # We'll add a mock LLM engine that compiles
-          
+          # Create simplified LLMEngine (no llama.cpp for now)
           cat > Sources/LocalLLM/LLMEngine.swift << 'SWIFT'
           import Foundation
           import Combine
@@ -352,7 +49,6 @@ jobs:
               private init() {}
               
               public func loadModel(from path: String? = nil) async throws {
-                  // Simulate loading
                   try await Task.sleep(nanoseconds: 1_000_000_000)
                   isModelLoaded = true
               }
@@ -365,15 +61,88 @@ jobs:
               ) async throws -> String {
                   isGenerating = true
                   defer { isGenerating = false }
-                  
-                  // Placeholder - will be replaced with llama.cpp
                   try await Task.sleep(nanoseconds: 500_000_000)
-                  return "This is a placeholder response. Real LLM integration coming soon!"
+                  return "Local LLM placeholder - real inference coming soon!"
               }
           }
           SWIFT
+          
+          echo "=== Source files ready ==="
+          ls -la Sources/LocalLLM/
       
-      - name: Build for iOS Device
+      - name: Create Xcode Project
+        run: |
+          mkdir -p LocalLLM.xcodeproj
+          
+          cat > LocalLLM.xcodeproj/project.pbxproj << 'EOF'
+          // !$*UTF8*$!
+          {
+            archiveVersion = 1;
+            classes = {};
+            objectVersion = 56;
+            objects = {
+              AAA00001 /* LocalLLMApp.swift */ = {isa = PBXBuildFile; fileRef = AAA00011; };
+              AAA00002 /* LLMEngine.swift */ = {isa = PBXBuildFile; fileRef = AAA00012; };
+              AAA00003 /* MCPManager.swift */ = {isa = PBXBuildFile; fileRef = AAA00013; };
+              AAA00004 /* AgentOrchestrator.swift */ = {isa = PBXBuildFile; fileRef = AAA00014; };
+              
+              AAA00010 /* LocalLLM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalLLM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+              AAA00011 /* LocalLLMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLLMApp.swift; sourceTree = "<group>"; };
+              AAA00012 /* LLMEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMEngine.swift; sourceTree = "<group>"; };
+              AAA00013 /* MCPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPManager.swift; sourceTree = "<group>"; };
+              AAA00014 /* AgentOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentOrchestrator.swift; sourceTree = "<group>"; };
+              AAA00015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+              
+              AAA00020 = { isa = PBXGroup; children = (AAA00021, AAA00022); sourceTree = "<group>"; };
+              AAA00021 = { isa = PBXGroup; children = (AAA00023); path = Sources; sourceTree = "<group>"; };
+              AAA00022 = { isa = PBXGroup; children = (AAA00010); name = Products; sourceTree = "<group>"; };
+              AAA00023 = { isa = PBXGroup; children = (AAA00011, AAA00012, AAA00013, AAA00014, AAA00015); path = LocalLLM; sourceTree = "<group>"; };
+              
+              AAA00030 /* LocalLLM */ = {
+                isa = PBXNativeTarget;
+                buildConfigurationList = AAA00040;
+                buildPhases = (AAA00031, AAA00032, AAA00033);
+                buildRules = ();
+                dependencies = ();
+                name = LocalLLM;
+                productName = LocalLLM;
+                productReference = AAA00010;
+                productType = "com.apple.product-type.application";
+              };
+              AAA00031 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (AAA00001, AAA00002, AAA00003, AAA00004); runOnlyForDeploymentPostprocessing = 0; };
+              AAA00032 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+              AAA00033 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+              
+              AAA00050 /* Project object */ = {
+                isa = PBXProject;
+                attributes = { BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1540; LastUpgradeCheck = 1540; TargetAttributes = { AAA00030 = { CreatedOnToolsVersion = 15.4; }; }; };
+                buildConfigurationList = AAA00051;
+                compatibilityVersion = "Xcode 14.0";
+                developmentRegion = en;
+                hasScannedForEncodings = 0;
+                knownRegions = (en, Base);
+                mainGroup = AAA00020;
+                productRefGroup = AAA00022;
+                projectDirPath = "";
+                projectRoot = "";
+                targets = (AAA00030);
+              };
+              
+              AAA00060 /* Debug */ = { isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CODE_SIGN_IDENTITY = ""; CODE_SIGNING_ALLOWED = NO; CODE_SIGNING_REQUIRED = NO; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_DYNAMIC_NO_PIC = NO; GCC_OPTIMIZATION_LEVEL = 0; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; MTL_FAST_MATH = YES; ONLY_ACTIVE_ARCH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; SWIFT_VERSION = 5.0; }; name = Debug; };
+              AAA00061 /* Release */ = { isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CODE_SIGN_IDENTITY = ""; CODE_SIGNING_ALLOWED = NO; CODE_SIGNING_REQUIRED = NO; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = NO; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; SWIFT_VERSION = 5.0; VALIDATE_PRODUCT = YES; }; name = Release; };
+              AAA00062 /* Debug */ = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_IDENTITY = ""; CODE_SIGNING_ALLOWED = NO; CODE_SIGNING_REQUIRED = NO; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_FILE = Sources/LocalLLM/Info.plist; INFOPLIST_KEY_CFBundleDisplayName = LocalLLM; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = "com.localllm.ios"; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Debug; };
+              AAA00063 /* Release */ = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_IDENTITY = ""; CODE_SIGNING_ALLOWED = NO; CODE_SIGNING_REQUIRED = NO; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_FILE = Sources/LocalLLM/Info.plist; INFOPLIST_KEY_CFBundleDisplayName = LocalLLM; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = "com.localllm.ios"; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Release; };
+              
+              AAA00040 = { isa = XCConfigurationList; buildConfigurations = (AAA00062, AAA00063); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+              AAA00051 = { isa = XCConfigurationList; buildConfigurations = (AAA00060, AAA00061); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+            };
+            rootObject = AAA00050;
+          }
+          EOF
+          
+          echo "✅ Xcode project created"
+      
+      - name: Build for iOS
         run: |
           xcodebuild \
             -project LocalLLM.xcodeproj \
@@ -386,76 +155,17 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            AD_HOC_CODE_SIGNING_ALLOWED=YES \
-            ONLY_ACTIVE_ARCH=NO \
-            | xcpretty || true
-          
-          # Check if archive was created
-          if [ -d "build/LocalLLM.xcarchive" ]; then
-            echo "✅ Archive created successfully"
-            ls -la build/LocalLLM.xcarchive/Products/Applications/ || echo "Checking structure..."
-            find build/LocalLLM.xcarchive -name "*.app" || echo "No .app found"
-          else
-            echo "❌ Archive not created, trying direct build..."
-            
-            # Fallback: direct build
-            xcodebuild \
-              -project LocalLLM.xcodeproj \
-              -scheme LocalLLM \
-              -configuration Release \
-              -sdk iphoneos \
-              -derivedDataPath $PWD/build/DerivedData \
-              CODE_SIGN_IDENTITY="" \
-              CODE_SIGNING_REQUIRED=NO \
-              CODE_SIGNING_ALLOWED=NO \
-              build
-            
-            # Find the .app
-            find build -name "*.app" -type d
-          fi
+            ONLY_ACTIVE_ARCH=NO
       
       - name: Create IPA
         run: |
           mkdir -p build/Payload
-          
-          # Try to find .app in various locations
-          APP_PATH=""
-          
-          if [ -d "build/LocalLLM.xcarchive/Products/Applications/LocalLLM.app" ]; then
-            APP_PATH="build/LocalLLM.xcarchive/Products/Applications/LocalLLM.app"
-          else
-            # Search for it
-            APP_PATH=$(find build -name "LocalLLM.app" -type d | head -1)
-          fi
-          
-          if [ -n "$APP_PATH" ] && [ -d "$APP_PATH" ]; then
-            echo "Found app at: $APP_PATH"
-            cp -r "$APP_PATH" build/Payload/
-            cd build
-            zip -r LocalLLM.ipa Payload
-            echo "✅ IPA created successfully"
-            ls -la LocalLLM.ipa
-          else
-            echo "❌ Could not find LocalLLM.app"
-            echo "Build directory contents:"
-            find build -type d -name "*.app" 2>/dev/null || echo "No .app directories found"
-            exit 1
-          fi
+          cp -r build/LocalLLM.xcarchive/Products/Applications/LocalLLM.app build/Payload/
+          cd build && zip -r LocalLLM.ipa Payload
+          echo "✅ IPA created"
       
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: LocalLLM-iOS
           path: build/LocalLLM.ipa
-          if-no-files-found: error
-      
-      - name: Build Summary
-        run: |
-          echo "## 📱 Build Complete" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Download the IPA from the Artifacts section." >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Next Steps:" >> $GITHUB_STEP_SUMMARY
-          echo "1. Download \`LocalLLM-iOS.zip\`" >> $GITHUB_STEP_SUMMARY
-          echo "2. Extract \`LocalLLM.ipa\`" >> $GITHUB_STEP_SUMMARY
-          echo "3. Sideload with Sideloadly" >> $GITHUB_STEP_SUMMARY
